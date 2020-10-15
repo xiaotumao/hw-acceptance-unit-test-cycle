@@ -13,8 +13,6 @@ Background: movies in database
   | Alien        | R      |              |   1979-05-25 |
   | THX-1138     | R      | George Lucas |   1971-03-11 |
  
-
- 
 Scenario: add director to existing movie
   When I go to the edit page for "Alien"
   And  I fill in "Director" with "Ridley Scott"
@@ -32,10 +30,5 @@ Scenario: can't find similar movies if we don't know director (sad path)
   Given I am on the details page for "Alien"
   Then  I should not see "Ridley Scott"
   When  I follow "Find Movies With Same Director"
-  Then  I should be on the home page
+  Then  I should be on the RottenPotatoes home page 
   And   I should see "'Alien' has no director info"
-  
-Scenario: go back to home page after viewing similar movies
-  Given I am on the Similar Movies page for "Star Wars"
-  When I follow "Back to movie list"
-  Then I should be on the home page

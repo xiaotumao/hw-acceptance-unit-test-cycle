@@ -24,7 +24,7 @@ Then /I should see all the movies/ do
   end
 end
 
-Then(/^the director of "([^"]*)" should be "([^"]*)"$/) do |movie, director|
-  page.should have_content(movie)
-  page.should have_content(director)
+Then /the director of "(.*)" should be "(.*)"/ do |movie, director|
+  step %Q{I should see "#{movie}"}
+  step %Q{I should see "#{director}"}
 end
