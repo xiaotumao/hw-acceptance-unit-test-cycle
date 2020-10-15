@@ -20,6 +20,18 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
+     when /^the edit page for "(.*)"$/
+      edit_movie_path(Movie.find_by_title($1))
+
+    # Added a path for 'the details page for a movie'
+    # Example:
+    # => "Given I am on the details page for "Star Wars""
+    when /^the details page for "(.*)"$/
+      movie_path(Movie.find_by_title($1))
+
+    when /^the Similar Movies page for "(.*)"$/
+      similar_movie_path(Movie.find_by_title($1))
+
 
     else
       begin
